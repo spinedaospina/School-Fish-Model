@@ -31,11 +31,11 @@ def calculateIndex(database):
 
     # First try, Narinio and Vichada as seeds
     # Narino's and Vichada's Indexes are used as a seed to feed the model, because this departments have the highest and lowest difference between 2019 and 2020 indexes
-    # feed_indx = [20, 31]
-    # for i in feed_indx:
-    #     dif[i][1] = database[i+1][1][1] - database[i+1][1][0]
-    #     logging.debug('%s Dif: %f', dif[i][0], dif[i][1])
-    # logging.debug('Seed implanted')
+    feed_indx = [20, 31]
+    for i in feed_indx:
+        dif[i][1] = database[i+1][1][1] - database[i+1][1][0]
+        logging.debug('%s Dif: %f', dif[i][0], dif[i][1])
+    logging.debug('Seed implanted')
 
     # Second try, Amazonas and Guajira as seeds
     # feed_indx = [0, 15]
@@ -52,11 +52,11 @@ def calculateIndex(database):
     # logging.debug('Seed implanted')
 
     # Fourth try, Vaupes and Choco as seeds
-    feed_indx = [11, 30]
-    for i in feed_indx:
-        dif[i][1] = database[i+1][1][1] - database[i+1][1][0]
-        logging.debug('%s Dif: %f', dif[i][0], dif[i][1])
-    logging.debug('Seed implanted')
+    # feed_indx = [11, 30]
+    # for i in feed_indx:
+    #     dif[i][1] = database[i+1][1][1] - database[i+1][1][0]
+    #     logging.debug('%s Dif: %f', dif[i][0], dif[i][1])
+    # logging.debug('Seed implanted')
 
     # Calculate difs with the seed
     nOfIterations = 50
@@ -72,7 +72,7 @@ def calculateIndex(database):
                         aux += dif[dif[i][2][j]][1]
                 if aux != 0:
                     # print(dif[i][0], ' val: ', aux / len(dif[i][2]))
-                    dif[i][1] = aux / len(dif[i][2])
+                    dif[i][1] = aux
                 else:
                     dif[i][1] = 0
     logging.debug('Dif Matrix iterated')
